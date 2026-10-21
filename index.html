@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#03040f">
+<meta name="description" content="La única conexión que necesitas es con Jesucristo. Juan 14:6">
+<title>La conexión verdadera ✨</title>
+
+<style>
+:root {
+  --gold: #ffd88a;
+  --gold-soft: #ffe9b8;
+  --blue: #6fe3ff;
+  --violet: #b48cff;
+  --pink: #ff8fb3;
+  --mint: #8effd9;
+  --bg: #03040f;
+  --text: #f4f6ff;
+  --text-soft: #c8d6f0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { min-height: 100%; }
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 26px 17px;
+  overflow-x: hidden;
+  isolation: isolate;
+  position: relative;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* FONDO CÓSMICO */
+#cosmos {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 42%, #1b2a5c 0%, #0d1430 42%, #03040f 78%);
+  contain: strict;
+}
+
+.nebula {
+  position: absolute;
+  width: 78vw;
+  height: 78vw;
+  max-width: 880px;
+  max-height: 880px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .34;
+  will-change: transform;
+  animation: nebulaDrift 14s ease-in-out infinite alternate;
+  contain: layout paint;
+}
+.nebula.one {
+  top: -28%; left: -26%;
+  background: radial-gradient(circle, #0a86ff 0%, #3a2fb8 34%, transparent 70%);
+  animation-duration: 15s;
+}
+.nebula.two {
+  right: -30%; top: 4%;
+  background: radial-gradient(circle, #cc2fd9 0%, #4a2599 38%, transparent 70%);
+  animation-delay: -5s;
+  animation-duration: 17s;
+}
+.nebula.three {
+  left: 12%; bottom: -52%;
+  background: radial-gradient(circle, #0aa6b3 0%, #1a4bb0 36%, transparent 70%);
+  animation-delay: -8s;
+  animation-duration: 16s;
+}
+.nebula.four {
+  right: -16%; bottom: -32%;
+  width: 62vw; height: 62vw;
+  background: radial-gradient(circle, #ffb347 0%, #e04b8a 32%, transparent 70%);
+  opacity: .16;
+  animation-duration: 18s;
+}
+
+@keyframes nebulaDrift {
+  0%   { transform: translate(-4%, -3%) scale(.85) rotate(0deg); }
+  50%  { transform: translate(7%, 6%) scale(1.14) rotate(32deg); }
+  100% { transform: translate(-2%, 10%) scale(1.02) rotate(68deg); }
+}
+
+/* AURORA */
+.aurora {
+  position: fixed;
+  inset: -35%;
+  z-index: -4;
+  pointer-events: none;
+  opacity: .24;
+  filter: blur(70px);
+  background: conic-gradient(from 40deg at 50% 50%,
+    transparent 0deg,
+    #1cc8ff 70deg,
+    #7a5cff 150deg,
+    #ff6fc4 230deg,
+    #ffcb6b 300deg,
+    #4be6c2 360deg,
+    transparent 400deg);
+  animation: auroraBreathe 12s ease-in-out infinite;
+  mask: radial-gradient(circle at 50% 50%, #000 30%, transparent 75%);
+  -webkit-mask: radial-gradient(circle at 50% 50%, #000 30%, transparent 75%);
+  contain: strict;
+}
+@keyframes auroraBreathe {
+  0%, 100% { transform: rotate(0deg) scale(1);    opacity: .18; }
+  50%      { transform: rotate(180deg) scale(1.18); opacity: .32; }
+}
+
+/* HALO */
+#halo {
+  position: fixed;
+  z-index: -2;
+  width: min(110vw, 920px);
+  aspect-ratio: 1;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle,
+      rgba(110,190,255,.20) 0%,
+      rgba(170,120,255,.12) 22%,
+      rgba(255,160,205,.06) 44%,
+      transparent 68%);
+  animation: haloPulse 5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+@keyframes haloPulse {
+  0%, 100% { opacity: .5;  scale: .88; }
+  50%      { opacity: 1;   scale: 1.14; }
+}
+
+/* ESTRELLAS */
+#stars {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+
+.star {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  left: var(--x);
+  top: var(--y);
+  border-radius: 50%;
+  background: var(--color);
+  box-shadow: 0 0 5px var(--color), 0 0 13px var(--color), 0 0 22px var(--color);
+  animation: twinkle var(--duration) cubic-bezier(.4,0,.6,1) var(--delay) infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: .1;  transform: scale(.5); }
+  50%      { opacity: 1;   transform: scale(1.9); }
+}
+
+/* POLVO */
+.particle {
+  position: absolute;
+  left: var(--x);
+  bottom: -15px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: var(--color);
+  box-shadow: 0 0 10px var(--color), 0 0 20px var(--color);
+  opacity: 0;
+  animation: particleRise var(--duration) cubic-bezier(.4,0,.6,1) var(--delay) infinite;
+  will-change: transform, opacity;
+}
+@keyframes particleRise {
+  0%   { transform: translate3d(0, 0, 0) scale(.3); opacity: 0; }
+  12%  { opacity: .9; }
+  70%  { opacity: .55; }
+  100% { transform: translate3d(var(--drift), -118vh, 0) scale(1.6); opacity: 0; }
+}
+
+/* FUGACES */
+.shooting-star {
+  position: absolute;
+  width: var(--length, 170px);
+  height: 2px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, transparent, var(--color), #fff);
+  box-shadow: 0 0 14px var(--color);
+  transform: rotate(-35deg);
+  animation: shooting var(--duration, 1s) cubic-bezier(.2,.6,.3,1) forwards;
+  will-change: transform, opacity;
+}
+@keyframes shooting {
+  0%   { opacity: 0; transform: translate(0, 0) rotate(-35deg) scaleX(.05); }
+  15%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(-300px, 210px) rotate(-42deg) scaleX(1.25); }
+}
+
+/* ONDAS */
+#waves {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  overflow: hidden;
+  contain: strict;
+}
+.ripple {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(140,205,255,.18);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: ripple 7s ease-out infinite;
+}
+.ripple:nth-child(2) { animation-delay: -2.3s; border-color: rgba(200,155,255,.18); }
+.ripple:nth-child(3) { animation-delay: -4.6s; border-color: rgba(255,220,155,.15); }
+@keyframes ripple {
+  0%   { width: 130px; height: 130px; opacity: 0; }
+  18%  { opacity: .85; }
+  100% { width: min(102vw, 880px); height: min(102vw, 880px); opacity: 0; }
+}
+
+/* TARJETA */
+.scene {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  perspective: 1300px;
+  z-index: 2;
+}
+
+.card {
+  --mx: 50%;
+  --my: 30%;
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 580px);
+  padding: clamp(38px, 7vw, 62px) clamp(22px, 6vw, 48px);
+  text-align: center;
+  overflow: hidden;
+  border-radius: 30px;
+  border: 1px solid rgba(190,205,255,.24);
+  background:
+    radial-gradient(circle at var(--mx) var(--my), rgba(120,175,255,.16), transparent 50%),
+    linear-gradient(148deg,
+      rgba(255,255,255,.09),
+      rgba(255,255,255,.02) 55%,
+      rgba(130,95,210,.06));
+  box-shadow:
+    0 35px 100px rgba(0,0,0,.5),
+    0 0 70px rgba(80,110,255,.10),
+    inset 0 1px 0 rgba(255,255,255,.15);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transform-style: preserve-3d;
+  animation: cardEnter 1s cubic-bezier(.16,.84,.24,1) both;
+  transition: border-color .6s, box-shadow .6s;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -120%;
+  pointer-events: none;
+  background: linear-gradient(115deg,
+    transparent 40%,
+    rgba(110,225,255,.07) 46%,
+    rgba(255,255,255,.14) 50%,
+    rgba(220,155,255,.07) 54%,
+    transparent 60%);
+  animation: glassSweep 6s ease-in-out infinite;
+  will-change: transform;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  background: linear-gradient(135deg,
+    rgba(110,225,255,.55),
+    transparent 30%,
+    rgba(200,155,255,.15) 62%,
+    rgba(255,220,150,.5));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+@keyframes glassSweep {
+  0%, 50% { transform: translateX(-30%); }
+  100%    { transform: translateX(30%); }
+}
+@keyframes cardEnter {
+  0%   { opacity: 0; transform: translateY(40px) scale(.94) rotateX(6deg); filter: blur(10px); }
+  100% { opacity: 1; transform: translateY(0) scale(1) rotateX(0deg);    filter: blur(0); }
+}
+
+.overline {
+  margin-bottom: 25px;
+  color: #c9dcff;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: textIn .8s .3s forwards;
+}
+
+.mini-line {
+  width: 115px;
+  height: 2px;
+  margin: 0 auto 31px;
+  border-radius: 10px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--blue),
+    var(--violet),
+    var(--pink),
+    var(--gold),
+    transparent);
+  background-size: 250% 100%;
+  box-shadow: 0 0 16px rgba(115,190,255,.3);
+  animation: lineFlow 2.5s ease-in-out infinite;
+}
+@keyframes lineFlow {
+  0%, 100% { background-position: 0% 0; }
+  50%      { background-position: 100% 0; }
+}
+
+h1 {
+  font-size: clamp(26px, 6.5vw, 41px);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -.4px;
+  color: var(--text);
+  text-shadow: 0 3px 30px rgba(0,0,0,.45);
+  text-wrap: balance;
+  opacity: 0;
+  animation: textIn .9s .45s forwards;
+}
+
+/* ====== JESUCRISTO DESTACADO Y DEFINIDO ====== */
+h1 .gold {
+  position: relative;
+  display: block;
+  margin-top: 13px;
+  font-size: clamp(39px, 10vw, 65px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: .2px;
+  color: transparent;
+  /* Gradiente con tonos más profundos para no perderse en el fondo */
+  background: linear-gradient(105deg,
+    #ffdf9e 0%,
+    #ffb859 15%,
+    #ff729d 35%,
+    #a87cff 55%,
+    #4dccff 75%,
+    #ffdf9e 100%);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation:
+    colorFlow 3.5s ease-in-out infinite,
+    wordPop .9s cubic-bezier(.34,1.56,.64,1) .9s both,
+    wordGlow 2s ease-in-out 1.8s infinite;
+}
+/* Aura difuminada: más sutil, cálida y violeta */
+h1 .gold::before {
+  content: "Jesucristo";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: blur(22px);
+  opacity: .55;
+  z-index: -2;
+  animation: auraPulse 1.8s ease-in-out infinite;
+}
+/* Halo cercano: más contenido */
+h1 .gold::after {
+  content: "Jesucristo";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: blur(8px);
+  opacity: .75;
+  z-index: -1;
+  animation: auraPulse 1.8s ease-in-out .2s infinite;
+}
+
+@keyframes colorFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+@keyframes wordPop {
+  0%   { opacity: 0; transform: scale(.6) translateY(20px); filter: blur(8px); }
+  60%  { opacity: 1; transform: scale(1.1) translateY(-4px); filter: blur(0); }
+  100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+}
+@keyframes auraPulse {
+  0%, 100% { opacity: .4; transform: scale(1); }
+  50%      { opacity: .8; transform: scale(1.04); }
+}
+/* Glow mucho más sutil y oscuro para dar contraste, sin lavar el color */
+@keyframes wordGlow {
+  0%, 100% {
+    text-shadow:
+      0 2px 4px rgba(0,0,0,0.6),
+      0 0 15px rgba(255,184,89,.4),
+      0 0 30px rgba(168,124,255,.3);
+  }
+  50% {
+    text-shadow:
+      0 2px 4px rgba(0,0,0,0.6),
+      0 0 25px rgba(255,184,89,.6),
+      0 0 45px rgba(77,204,255,.4),
+      0 0 65px rgba(168,124,255,.3);
+  }
+}
+
+/* Destellos que recorren las letras */
+.gold .sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 2;
+}
+.gold .sparkles i {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 8px #fff,
+    0 0 16px var(--gold),
+    0 0 28px var(--pink);
+  opacity: 0;
+  animation: sparkleMove 2.4s ease-in-out infinite;
+}
+.gold .sparkles i:nth-child(1) { top: 18%; animation-delay: 0s;    --sx: 5%; }
+.gold .sparkles i:nth-child(2) { top: 55%; animation-delay: .4s;   --sx: 22%; }
+.gold .sparkles i:nth-child(3) { top: 32%; animation-delay: .8s;   --sx: 40%; }
+.gold .sparkles i:nth-child(4) { top: 70%; animation-delay: 1.2s;  --sx: 58%; }
+.gold .sparkles i:nth-child(5) { top: 25%; animation-delay: 1.6s;  --sx: 76%; }
+.gold .sparkles i:nth-child(6) { top: 60%; animation-delay: 2s;    --sx: 92%; }
+
+@keyframes sparkleMove {
+  0%, 100% { left: var(--sx); transform: scale(.3); opacity: 0; }
+  20%      { opacity: 1; transform: scale(1.6); }
+  50%      { opacity: .9; transform: scale(1.2) translateY(-4px); }
+  80%      { opacity: .6; transform: scale(.8); }
+}
+
+/* Línea de luz barriendo el nombre (más nítida) */
+.gold .shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg,
+    transparent 40%,
+    rgba(255,255,255,.9) 50%,
+    transparent 60%);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shineSweep 2.5s ease-in-out infinite;
+  z-index: 3;
+  pointer-events: none;
+}
+@keyframes shineSweep {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.verse {
+  margin-top: 32px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  color: var(--text-soft);
+  font-size: clamp(15px, 3.8vw, 18px);
+  line-height: 1.85;
+  font-style: italic;
+  letter-spacing: .25px;
+  text-wrap: balance;
+  opacity: 0;
+  animation: textIn .9s .8s forwards;
+}
+
+.reference {
+  display: block;
+  margin-top: 16px;
+  color: var(--gold);
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 0 0 18px rgba(255,216,138,.45);
+}
+
+.footer {
+  margin-top: 30px;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  line-height: 1.8;
+  text-transform: uppercase;
+  color: rgba(200,214,240,.6);
+  opacity: 0;
+  animation: textIn .9s 1s forwards;
+}
+
+@keyframes textIn {
+  0%   { opacity: 0; transform: translateY(22px); filter: blur(6px); }
+  100% { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+
+.flash {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 10px #fff,
+    0 0 22px var(--blue),
+    0 0 34px var(--violet);
+  pointer-events: none;
+  animation: flash 1s cubic-bezier(.2,.6,.3,1) forwards;
+}
+@keyframes flash {
+  0%   { opacity: 0; transform: scale(.15); }
+  20%  { opacity: 1; transform: scale(1.7); }
+  100% { opacity: 0; transform: scale(.1) translateY(-30px); }
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+@media (max-width: 400px) {
+  .card { padding: 35px 20px; border-radius: 25px; }
+  .overline { letter-spacing: 3px; }
+  .verse { margin-top: 25px; padding-top: 20px; }
+  .footer { letter-spacing: 1.8px; }
+  .nebula { filter: blur(55px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .card { animation: none; opacity: 1; transform: none; }
+  .overline, h1, .verse, .footer { opacity: 1; animation: none; }
+  h1 .gold::after, h1 .gold::before { display: none; }
+  .gold .sparkles, .gold .shine { display: none; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="cosmos" aria-hidden="true">
+  <div class="nebula one"></div>
+  <div class="nebula two"></div>
+  <div class="nebula three"></div>
+  <div class="nebula four"></div>
+</div>
+
+<div class="aurora" aria-hidden="true"></div>
+<div id="halo" aria-hidden="true"></div>
+
+<div id="waves" aria-hidden="true">
+  <div class="ripple"></div>
+  <div class="ripple"></div>
+  <div class="ripple"></div>
+</div>
+
+<div id="stars" aria-hidden="true"></div>
+<div id="shooting-stars" aria-hidden="true"></div>
+
+<main class="scene">
+  <article class="card" id="card" tabindex="0" aria-labelledby="titulo">
+
+    <p class="overline">Una verdad que permanece</p>
+
+    <div class="mini-line" aria-hidden="true"></div>
+
+    <h1 id="titulo">
+      La única conexión que necesitas es con
+      <span class="gold">
+        Jesucristo
+        <span class="shine" aria-hidden="true">Jesucristo</span>
+        <span class="sparkles" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+        </span>
+      </span>
+    </h1>
+
+    <p class="verse">
+      <q cite="Juan 14:6">Yo soy el camino, y la verdad, y la vida.</q>
+      <span class="reference">Juan 14:6</span>
+    </p>
+
+    <p class="footer">La fe · La esperanza · El amor</p>
+
+  </article>
+</main>
+
+<script>
+(() => {
+  const stars = document.getElementById('stars');
+  const card = document.getElementById('card');
+  const halo = document.getElementById('halo');
+  const shootingLayer = document.getElementById('shooting-stars');
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const colors = ['#ffffff', '#ffe9b8', '#6fe3ff', '#b48cff', '#ff8fb3', '#8effd9'];
+  const isSmall = innerWidth < 600;
+
+  /* ESTRELLAS */
+  const starFragment = document.createDocumentFragment();
+  const count = Math.min(isSmall ? 70 : 130, Math.max(55, Math.floor(innerWidth / 4)));
+
+  for (let i = 0; i < count; i++) {
+    const star = document.createElement('span');
+    star.className = 'star';
+    star.style.setProperty('--x', Math.random() * 100 + '%');
+    star.style.setProperty('--y', Math.random() * 100 + '%');
+    star.style.setProperty('--size', (Math.random() * 2.3 + .5) + 'px');
+    star.style.setProperty('--color', colors[Math.floor(Math.random() * colors.length)]);
+    star.style.setProperty('--duration', (1.8 + Math.random() * 4) + 's');
+    star.style.setProperty('--delay', (-Math.random() * 5) + 's');
+    starFragment.appendChild(star);
+  }
+  stars.appendChild(starFragment);
+
+  /* PARTÍCULAS */
+  if (!reducedMotion) {
+    const particleFragment = document.createDocumentFragment();
+    const particleCount = isSmall ? 20 : 45;
+
+    for (let i = 0; i < particleCount; i++) {
+      const p = document.createElement('span');
+      p.className = 'particle';
+      p.style.setProperty('--x', Math.random() * 100 + '%');
+      p.style.setProperty('--size', (1 + Math.random() * 3) + 'px');
+      p.style.setProperty('--color', colors[Math.floor(Math.random() * colors.length)]);
+      p.style.setProperty('--duration', (7 + Math.random() * 10) + 's');
+      p.style.setProperty('--delay', (-Math.random() * 15) + 's');
+      p.style.setProperty('--drift', (Math.random() * 160 - 80) + 'px');
+      particleFragment.appendChild(p);
+    }
+    stars.appendChild(particleFragment);
+  }
+
+  if (reducedMotion) return;
+
+  /* PARALLAX */
+  const finePointer = matchMedia('(pointer: fine)').matches;
+
+  if (finePointer) {
+    let targetX = 0, targetY = 0;
+    let currentX = 0, currentY = 0;
+    let rafId = null;
+    let cardRect = null;
+
+    const updateScene = () => {
+      currentX += (targetX - currentX) * .1;
+      currentY += (targetY - currentY) * .1;
+
+      card.style.transform = `rotateX(${-currentY * 2}deg) rotateY(${currentX * 2}deg)`;
+      halo.style.marginLeft = `${currentX * 18}px`;
+      halo.style.marginTop  = `${currentY * 14}px`;
+
+      if (Math.abs(targetX - currentX) > .001 || Math.abs(targetY - currentY) > .001) {
+        rafId = requestAnimationFrame(updateScene);
+      } else {
+        rafId = null;
+      }
+    };
+
+    const onPointerMove = (e) => {
+      targetX = (e.clientX / innerWidth - .5) * 2;
+      targetY = (e.clientY / innerHeight - .5) * 2;
+
+      if (cardRect) {
+        const mx = ((e.clientX - cardRect.left) / cardRect.width) * 100;
+        const my = ((e.clientY - cardRect.top) / cardRect.height) * 100;
+        card.style.setProperty('--mx', `${mx}%`);
+        card.style.setProperty('--my', `${my}%`);
+      }
+
+      if (!rafId) rafId = requestAnimationFrame(updateScene);
+    };
+
+    card.addEventListener('pointerenter', () => {
+      cardRect = card.getBoundingClientRect();
+    });
+    window.addEventListener('pointermove', onPointerMove, { passive: true });
+    window.addEventListener('resize', () => { cardRect = null; }, { passive: true });
+
+    document.addEventListener('pointerleave', () => {
+      targetX = 0; targetY = 0;
+      card.style.setProperty('--mx', '50%');
+      card.style.setProperty('--my', '30%');
+      if (!rafId) rafId = requestAnimationFrame(updateScene);
+    });
+
+    window.addEventListener('scroll', () => { cardRect = null; }, { passive: true });
+  }
+
+  /* FUGACES */
+  let shootingTimer;
+  const shootingColors = ['#ffffff', '#6fe3ff', '#ffe9b8', '#b48cff', '#ff8fb3'];
+
+  function createShootingStar() {
+    if (document.hidden) return;
+    const star = document.createElement('span');
+    star.className = 'shooting-star';
+    star.style.left = (20 + Math.random() * 90) + '%';
+    star.style.top  = (Math.random() * 48) + '%';
+    star.style.setProperty('--color', shootingColors[Math.floor(Math.random() * shootingColors.length)]);
+    star.style.setProperty('--length', (110 + Math.random() * 130) + 'px');
+    star.style.setProperty('--duration', (.7 + Math.random() * .8) + 's');
+    shootingLayer.appendChild(star);
+    star.addEventListener('animationend', () => star.remove(), { once: true });
+  }
+
+  function scheduleShootingStar() {
+    clearTimeout(shootingTimer);
+    if (document.hidden) return;
+    shootingTimer = setTimeout(() => {
+      createShootingStar();
+      if (Math.random() > .55) setTimeout(createShootingStar, 250);
+      scheduleShootingStar();
+    }, 900 + Math.random() * 1600);
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) clearTimeout(shootingTimer);
+    else scheduleShootingStar();
+  });
+  scheduleShootingStar();
+
+  /* DESTELLOS EN TARJETA */
+  let flashTimer;
+  function createFlash() {
+    if (document.hidden) return;
+    const rect = card.getBoundingClientRect();
+    const flash = document.createElement('span');
+    flash.className = 'flash';
+    flash.style.left = Math.random() * rect.width + 'px';
+    flash.style.top  = Math.random() * rect.height + 'px';
+    card.appendChild(flash);
+    flash.addEventListener('animationend', () => flash.remove(), { once: true });
+  }
+
+  function scheduleFlash() {
+    clearTimeout(flashTimer);
+    if (document.hidden) return;
+    flashTimer = setTimeout(() => {
+      createFlash();
+      scheduleFlash();
+    }, 650 + Math.random() * 1200);
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) clearTimeout(flashTimer);
+    else scheduleFlash();
+  });
+  scheduleFlash();
+
+  /* BRILLO AL TOCAR */
+  card.addEventListener('pointerdown', () => {
+    card.animate([
+      { boxShadow: '0 35px 100px rgba(0,0,0,.5), 0 0 0 rgba(111,227,255,0)' },
+      { boxShadow: '0 35px 100px rgba(0,0,0,.5), 0 0 60px rgba(111,227,255,.22), 0 0 100px rgba(180,140,255,.18)' },
+      { boxShadow: '0 35px 100px rgba(0,0,0,.5), 0 0 0 rgba(111,227,255,0)' }
+    ], { duration: 700, easing: 'ease-out' });
+  }, { passive: true });
+
+})();
+</script>
+
+</body>
+</html>
